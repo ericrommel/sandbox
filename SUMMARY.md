@@ -1,3 +1,5 @@
+[![Sandbox CI](https://github.com/{username}/{repository}/workflows/sandbox/badge.svg)](https://github.com/ericrommel/sandbox/actions/)
+
 # Summary 
 This is a summary about the steps done to solve the assessment: Fix the three failing tests.
 
@@ -56,3 +58,6 @@ This is a summary about the steps done to solve the assessment: Fix the three fa
             - As the `Question` model has a `OneToMany` relationship with the `Choice`
               model, `prefetch_related` is the better option here.
     - Complexity: Easy
+
+### Sandbox CI Workflow
+A CI workflow has been integrated into GitHub Actions to automate testing for the Sandbox project. Its purpose is to ensure that all tests are passing before changes are merged.
