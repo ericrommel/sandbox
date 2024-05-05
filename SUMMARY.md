@@ -1,4 +1,4 @@
-[![Sandbox CI](https://github.com/{username}/{repository}/workflows/sandbox/badge.svg)](https://github.com/ericrommel/sandbox/actions/)
+[![Sandbox CI](https://github.com/ericrommel/sandbox/actions/workflows/sandbox.yml/badge.svg)](https://github.com/ericrommel/sandbox/actions/)
 
 # Summary 
 This is a summary about the steps done to solve the assessment: Fix the three failing tests.
