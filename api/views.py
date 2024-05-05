@@ -28,7 +28,8 @@ class QuestionViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows polls to be viewed or edited.
     """
-    queryset = Question.objects.all()
+    # Fix the test_query_count_is_off
+    queryset = Question.objects.prefetch_related('choice_set').all()
     serializer_class = QuestionSerializer
     permission_classes = [permissions.IsAuthenticated]
 

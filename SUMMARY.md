@@ -16,3 +16,12 @@ This is a summary about the steps done to solve the assessment: Fix the three fa
                 - `python .\manage.py migrate`
 
 ## test_query_count_is_off
+    - Issue: Number of queries executed during a list request is higher than expected.
+    - Solution:
+        - Root cause: Django is getting the `polls_choice` objects individually for each `polls_question` in the query list, increasing the number of queries.
+        - Actions: Optimize the queryset used to getting the list of questions to prefetch related `polls_choice`.
+			- Options to use are:
+				- `select_related`: It works well for `OneToOne` relationships, however, it does not work with `ManyToMany` relationships.
+				- `prefetch_related`: It works well for `OneToOne` and `ManyToMany` relationships.
+			- As the `Question` model has a `OneToMany` relationship with the `Choice` model, `prefetch_related` is the better option here:
+				- `queryset = Question.objects.prefetch_related('choice_set').all()`
