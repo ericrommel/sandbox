@@ -25,6 +25,11 @@ class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     choices = ChoiceSerializer(source="choice_set", many=True)
 
+    # Fix for TC `test_has_date_created`. Add the missed field
+    date_created = serializers.DateTimeField(read_only=True)
+
     class Meta:
         model = Question
-        fields = ["url", "question_text", "pub_date", "choices"]
+
+        # Fix for TC `test_has_date_created`. Add the missed field
+        fields = ["url", "question_text", "pub_date", "choices", "date_created"]

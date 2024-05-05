@@ -9,6 +9,9 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
+    # Fix for TC `test_has_date_created`. Add the missed field
+    date_created = models.DateTimeField(auto_now_add=True)
+
     @admin.display(
         boolean=True,
         ordering="pub_date",
